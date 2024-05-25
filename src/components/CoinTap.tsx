@@ -15,7 +15,7 @@ const WalletBalance: React.FC<{ balance: number }> = ({ balance }) => (
 );
 
 const CoinTap: React.FC = () => {
-    const [username, setUsername] = useState<string>('fyzanshaik');
+    const [username, setUsername] = useState<string>('');
     const [showUsernameWarning, setShowUsernameWarning] = useState<boolean>(false);
     const [initialScore, setInitialScore] = useState<number>(0); 
     const [updatingScore, setUpdatingScore] = useState<number>(0); 
@@ -26,8 +26,8 @@ const CoinTap: React.FC = () => {
         if (user && user.username) {
             setUsername(user.username);
         } else {
-            setUsername('fyzanshaik');
-            setShowUsernameWarning(false);
+            setUsername('anonymous');
+            setShowUsernameWarning(true);
         }
     }, []);
 
