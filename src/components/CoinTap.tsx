@@ -5,6 +5,8 @@ import useTapHandler from '../hooks/useTapHandler';
 import 'tailwindcss/tailwind.css';
 import axios from 'axios';
 
+const url = `https://web3-bot-backend-1.vercel.app`
+
 const WalletBalance: React.FC<{ balance: number }> = ({ balance }) => (
     <div className="mb-4">
         <span role="img" aria-label="money emoji" className="mr-2">
@@ -53,7 +55,7 @@ const CoinTap: React.FC = () => {
             const valueToBeSent = updatingScore - initialScore;
             if (valueToBeSent > 0) {
                 try {
-                    await axios.post('http://localhost:3001/api/user', {
+                    await axios.post(`${url}/api/user`, {
                         username: username,
                         score: valueToBeSent
                     });

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import axios from 'axios';
+const url = `https://web3-bot-backend-1.vercel.app`
 
 const useSaveScore = (valueToBeSent: number, username: string) => {
     const saveDataRef = useRef<(newScore: number) => void>();
@@ -11,7 +12,7 @@ const useSaveScore = (valueToBeSent: number, username: string) => {
                 score: newScore,
             };
             try {
-                await axios.post('http://localhost:3001/api/user', userData);
+                await axios.post(`${url}/api/user`, userData);
             } catch (error) {
                 console.error('Error sending data to server:', error);
             }

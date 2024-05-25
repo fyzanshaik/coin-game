@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+const url = `https://web3-bot-backend-1.vercel.app`
 
 interface UserData {
     score: number;
@@ -12,7 +13,7 @@ const useFetchUserData = (username: string) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get<UserData>(`http://localhost:3001/api/user?username=${username}`);
+                const response = await axios.get<UserData>(`${url}/api/user?username=${username}`);
                 const userData = response.data;
                 setScore(userData.score || 0);
             } catch (error) {
